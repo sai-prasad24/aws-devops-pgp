@@ -27,7 +27,7 @@ def hello_world():
         file_name = "file-id-" + str(count_obj + 1)
 
         try:
-            s3.Bucket(custombucket).put_object(Key=file_name, Body=file_body)
+            s3.Bucket(custombucket).put_object(Key=file_name, Body=file_body,ContentType='image/png')
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
